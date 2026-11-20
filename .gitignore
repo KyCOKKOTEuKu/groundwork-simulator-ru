@@ -1,0 +1,3 @@
+*.zip
+source/*.embedded.json
+__pycache__/

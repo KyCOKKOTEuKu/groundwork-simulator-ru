@@ -15,7 +15,7 @@
 
 ## Установка
 
-1. Скачайте архив `GroundworkRU_v1.0.zip` со страницы [Releases](../../releases/latest).
+1. Скачайте архив `GroundworkRU_v1.x.zip` (последняя версия) со страницы [Releases](../../releases/latest).
 2. Закройте игру.
 3. Распакуйте архив и запустите `УСТАНОВИТЬ.bat`. Скрипт сам найдёт игру в библиотеке Steam, а если не найдёт, попросит путь к папке игры.
 4. В игре выберите: Настройки → Общие → Язык → Русский.
@@ -55,7 +55,10 @@ Steam при обновлении заменяет `game.exe`, и перевод
 cd source
 python extract_catalogs.py "путь\к\game.exe"
 python build.py
+python variants.py
 ```
+
+`variants.py` дополняет `ru_extra.json`: игра перед поиском перевода переименовывает термины в английском тексте (cleanup table → Gold Table, cleanup pallet → mat pallet, washplant → trommel и т.п.) и показывает отдельные абзацы подсказок, поэтому для них нужны отдельные ключи. Строки, добавленные вручную, лежат в `source/extra_manual.json`.
 
 `extract_catalogs.py` достаёт английский и русский каталоги из вашего `game.exe` (нужен оригинальный, не пропатченный exe или `game.exe.ru-backup`). Сами файлы игры в репозиторий не выкладываются.
 
